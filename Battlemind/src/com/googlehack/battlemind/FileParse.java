@@ -22,7 +22,8 @@ public class FileParse {
 
 	public void parser(){
        // System.out.print("started\n");
-        String fileName = "passWithFreq.txt";
+		String startName = "C:\\Sites\\Battlemind-Project\\Battlemind\\";
+        String fileName = startName + "passWithFreq.txt";
         File file = new File(fileName);
 		String line = null;
 		String[] passes = new String[2];

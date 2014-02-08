@@ -26,6 +26,8 @@ public class BattleActivity extends Activity {
     private Context ctxt;
     
     private int currTextView;
+    
+    private boolean stopGuessing;
 
     private HashMap<Integer, ArrayList<String>> alphabet;
 	private ArrayList<String> passList;
@@ -33,6 +35,7 @@ public class BattleActivity extends Activity {
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
+		stopGuessing = false;
 		FileParse parse = new FileParse();
 		super.onCreate(savedInstanceState);
 		ctxt = (Context) this;
@@ -47,19 +50,27 @@ public class BattleActivity extends Activity {
 		int GAMELEVEL = bundle.getInt("GAMELEVEL");
 		TextView text = getTextView(currTextView);
 		currTextView++;
-		text.setText(password);
-
+		text.setText(spaceWord(password));
+/*
 		parse.parser();
 		alphabet = parse.getAlphabet();
 		passList = alphabet.get(password.length());
-/*
+//*/
         ArrayList<String> passList = new ArrayList<String>();
-        passList.add("monk");
-        passList.add("been");
+        passList.add("fuck");//1
+        passList.add("test");//2
+        passList.add("pass");//3
+        passList.add("love");//4
+        passList.add("sexy");
+        passList.add("mike");
+        passList.add("john");//5
+        passList.add("porn");
+        passList.add("blue");
+        passList.add("asdf");
+        passList.add("jack");
+        passList.add("golf");
         passList.add("bear");
-        passList.add("chat");
-        passList.add("beat");
-        passList.add("meat");
+        passList.add("fred");
         //*/
 		ai = new ArtificialIntelligence(passList, ALPHABETIC);
 		
@@ -88,9 +99,11 @@ public class BattleActivity extends Activity {
 			relLayout.setBackgroundResource(R.drawable.battlemindlevel7);
 		}
 		//*/
-		
-		for (int i = 0; i < 4; i++){
+		int count = 0;
+		while(!stopGuessing){
+			if (count > 6) break;
 			playGame();
+			count++;
 		}
 	}
 
@@ -121,18 +134,30 @@ public class BattleActivity extends Activity {
 		// ex: pass = "bear"
 		String guess = ai.guess(); // ex: guess = "meat"
 		TextView text = getTextView(currTextView++);
-		text.setText(guess);
+		text.setText(spaceWord(guess));
 		// draw guess here
 		//ViewGroup layout = (ViewGroup) findViewById(R.id.topLevel);
 		/*TextView tv = new TextView(this);
 		tv.setLayoutParams(new LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT));
 		tv.setText(guess);
 		layout.addView(tv);*/
+		System.out.println("guess=" + guess + " ; pass=" + password);
+		stopGuessing = (password.equals(guess));
 		String result = getResult(guess, password); // ex: result = "*ea*"
 		ai.updatePassword(result);
 		/*EditText et = new EditText(this);
 		et.setLayoutParams(new LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT));*/
 		
+    }
+    
+    public String spaceWord(String s){
+    	String spaced = "";
+    	for (int i = 0; i < s.length() - 1; i++){
+    		String sLetter = String.valueOf(s.charAt(i));
+    		spaced += sLetter + " ";
+    	}
+    	spaced += String.valueOf(s.charAt(s.length() - 1));
+    	return spaced;
     }
     
     public TextView getTextView(int idx){

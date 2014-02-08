@@ -34,7 +34,8 @@ public class ArtificialIntelligence {
                 guess = pop(passwordList);
             } else /* passwordList.isEmpty() */ {
                 System.out.println("empty");
-                genListByBruteForce();
+                break;
+                //genListByBruteForce();
             }
         }
         return guess;
