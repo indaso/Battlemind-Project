@@ -1,5 +1,7 @@
 package com.googlehack.battlemind;
 
+import android.util.Log;
+
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
@@ -13,16 +15,21 @@ public class FileParse {
 	private static HashMap<Integer, ArrayList<String>> alphabet;
 	private static HashMap<Integer, ArrayList<String>> both;
 
-	public static void main(String[] args){
-		String file = "passWithFreq";
+	public static void parser(){
+       // System.out.print("started\n");
+        String file = "passWithFreq.txt";
 		String line = null;
 		String[] passes = new String[2];
+        alphabet = new HashMap<Integer, ArrayList<String>>();
+        numeric = new HashMap<Integer, ArrayList<String>>();
+        both = new HashMap<Integer, ArrayList<String>>();
 		
 		try {
 			BufferedReader br = new BufferedReader (new FileReader(file));
 			line = br.readLine();
 			if (line!=null){
 				passes = line.split(",");
+                System.out.print(passes[0]+"\n");
 				checker(passes[0]);
 			}
 			
@@ -53,14 +60,18 @@ public class FileParse {
 		
 		for(char c : characters) {
 			if (Character.isDigit(c)){
+              //  System.out.print("Character: "+ c + "\n");
 				number = true;
 			}
 			
 			if (Character.isLetter(c)){
-				alpha = true;
+               // System.out.print("Character: "+ c + "\n");
+                alpha = true;
 			}
 		}
-		
+
+        //System.out.print("Number: "+number+"\n");
+
 		if (number && !alpha){
 			int length = pass.length();
 			if (numeric.containsKey(length)){
