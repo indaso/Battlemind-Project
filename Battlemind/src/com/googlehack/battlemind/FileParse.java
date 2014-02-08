@@ -1,6 +1,7 @@
 package com.googlehack.battlemind;
 
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
@@ -21,7 +22,8 @@ public class FileParse {
 
 	public void parser(){
        // System.out.print("started\n");
-        String file = "passWithFreq.txt";
+        String fileName = "passWithFreq.txt";
+        File file = new File(fileName);
 		String line = null;
 		String[] passes = new String[2];
         //alphabet = new HashMap<Integer, ArrayList<String>>();
