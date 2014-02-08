@@ -1,29 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:gravity="center"
-    android:orientation="vertical" >
-    
-    
-    <Button 
+    android:orientation="vertical"
+    tools:context=".BattleActivity" >
+
+    <Button
         android:id="@+id/alpha_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/alpha_button" 
-        android:onClick="alphaClicked"/>
-    
-    <Button 
+        android:onClick="alphaClicked"
+        android:text="@string/alpha_button" />
+
+    <Button
         android:id="@+id/numeric_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/numeric_button"
-        android:onClick="numericalClicked"/>
-    
+        android:onClick="numericalClicked"
+        android:text="@string/numeric_button" />
+
     <Button
         android:id="@+id/mixed_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/mixed_button" 
-        android:onClick="mixedClicked"/>
+        android:onClick="mixedClicked"
+        android:text="@string/mixed_button" />
+
 </LinearLayout>
