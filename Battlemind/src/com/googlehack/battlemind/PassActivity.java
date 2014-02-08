@@ -2,6 +2,7 @@ package com.googlehack.battlemind;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.View;
@@ -18,16 +19,32 @@ public class PassActivity extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_pass);
-		
 	}
 	
 	public void playClicked(View view) {
-		
+		/* Button playButton = (Button) findViewById(R.id.button1);
+	     playButton.setOnClickListener(new View.OnClickListener() {
+	     	public void onClick(View view) {
+	     		SharedPreferences settings = getSharedPreferences("GLOBAL_SETTINGS", 0);
+	     	//	SharedPreferences.Editor editor = settings.edit();
+	     		
+	     		EditText passField = (EditText) findViewById(R.id.editText1);
+	             String password = passField.getText().toString();
+	            // editor.putString("password", password);
+	            // editor.commit();
+	           //  finish();
+	     	}
+	     });*/
 		i = getIntent();
 		i2 = new Intent(this, BattleActivity.class);
-		i2.putExtra(GAMELEVEL, i.getIntExtra(MenuActivity.GAMEMODE, 0));
+		i2.putExtra(GAMELEVEL, i.getIntExtra(MenuActivity.GAMEMODE, 0)); //Sends game level to new activity
+		EditText passField = (EditText) findViewById(R.id.editText1);
+        String password = passField.getText().toString();
+        i2.putExtra("password", password); //Sending password to new activity
 		startActivity(i2);
 	}
+	
+	
 	
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
