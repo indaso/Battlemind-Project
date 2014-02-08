@@ -1,7 +1,6 @@
 package com.googlehack.battlemind;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 
 /**
  * Created by mikepatt on 2/7/14.

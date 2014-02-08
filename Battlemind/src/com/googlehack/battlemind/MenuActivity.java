@@ -5,6 +5,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
 
 public class MenuActivity extends Activity {
 //	private Button mixed;
@@ -20,8 +22,12 @@ public class MenuActivity extends Activity {
 		super.onCreate(savedInstanceState);
 		i = new Intent(this, PassActivity.class);
 
-		
+		this.requestWindowFeature(Window.FEATURE_NO_TITLE);
+		this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);	
 		setContentView(R.layout.activity_menu);
+		
+
+
 ////		
 //		mixed.findViewById(R.id.mixed_button);
 //		numerical.findViewById(R.id.numeric_button);
