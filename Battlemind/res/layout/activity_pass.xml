@@ -14,7 +14,8 @@
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"
-        android:ems="10" />
+        android:ems="10"
+        android:inputType="textVisiblePassword" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -23,5 +24,15 @@
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="80dp"
         android:text="@string/enter_pass" />
+
+    <Button
+        android:id="@+id/button1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/editText1"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="24dp"
+        android:text="@string/play_button" 
+        android:onClick="playClicked"/>
 
 </RelativeLayout>

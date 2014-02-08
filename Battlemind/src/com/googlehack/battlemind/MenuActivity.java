@@ -5,7 +5,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.View;
-import android.widget.Button;
 
 public class MenuActivity extends Activity {
 //	private Button mixed;
@@ -33,19 +32,19 @@ public class MenuActivity extends Activity {
 	public void alphaClicked(View view) {
 		buttontype = 0;
 		i.putExtra(GAMEMODE, buttontype);
-		startActivityForResult(i, 0);
+		startActivity(i);
 	}
 	
 	public void numericalClicked(View view) {
 		buttontype = 1;
 		i.putExtra(GAMEMODE, buttontype);
-		startActivityForResult(i, 0);
+		startActivity(i);
 	}
 	
 	public void mixedClicked(View view) {
 		buttontype = 2;
 		i.putExtra(GAMEMODE, buttontype);
-		startActivityForResult(i, 0);
+		startActivity(i);
 	}
 	
 	@Override
