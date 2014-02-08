@@ -10,6 +10,7 @@ import android.widget.EditText;
 
 public class PassActivity extends Activity {
 	private EditText passInput;
+	private final String GAMELEVEL= "GAMELEVEL";
 	private Button play;
 	private Intent i;
 	private Intent i2;
@@ -24,6 +25,8 @@ public class PassActivity extends Activity {
 	public void playClicked(View view) {
 		
 		i = getIntent();
+		i2 = new Intent(this, BattleActivity.class);
+		i2.putExtra(GAMELEVEL, i.getIntExtra(MenuActivity.GAMEMODE, 0));
 		startActivity(i);
 	}
 	

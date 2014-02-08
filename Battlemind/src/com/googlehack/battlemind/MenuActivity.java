@@ -10,7 +10,7 @@ public class MenuActivity extends Activity {
 //	private Button mixed;
 //	private Button numerical;
 //	private Button alpha;
-	private static final String GAMEMODE = "GameMode";
+	protected static final String GAMEMODE = "GameMode";
 	//game modes mixed = 0, numerical = 1, alpha = 2
 	private int buttontype;
 	private Intent i;
