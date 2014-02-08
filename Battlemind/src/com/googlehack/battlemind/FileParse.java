@@ -1,7 +1,5 @@
 package com.googlehack.battlemind;
 
-import android.util.Log;
-
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
