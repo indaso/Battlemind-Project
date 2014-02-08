@@ -8,5 +8,7 @@
     <string name="numeric_button">Numbers Only</string>
     <string name="mixed_button">Mixed</string>
     <string name="title_activity_menu">MenuActivity</string>
+    <string name="title_activity_pass">PassActivity</string>
+    <string name="enter_pass">Enter your password:</string>
 
 </resources>

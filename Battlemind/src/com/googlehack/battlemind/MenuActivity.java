@@ -15,6 +15,7 @@ public class MenuActivity extends Activity {
 	//game modes mixed = 0, numerical = 1, alpha = 2
 	private int buttontype;
 	private Intent i;
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
