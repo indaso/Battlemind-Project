@@ -137,7 +137,7 @@ public class ArtificialIntelligence {
     public static void main(String[] args){
         String pass = "doom";
 
-        ArrayList<String> passList = new ArrayList<>();
+        ArrayList<String> passList = new ArrayList<String>();
         passList.add("monk");
         passList.add("been");
         passList.add("bear");
