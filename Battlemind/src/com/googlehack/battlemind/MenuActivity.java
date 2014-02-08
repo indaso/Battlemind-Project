@@ -19,7 +19,7 @@ public class MenuActivity extends Activity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		i = new Intent(this, BattleActivity.class);
+		i = new Intent(this, PassActivity.class);
 
 		
 		setContentView(R.layout.activity_menu);
