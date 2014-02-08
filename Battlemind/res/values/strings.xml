@@ -11,5 +11,7 @@
     <string name="title_activity_pass">PassActivity</string>
     <string name="enter_pass">Enter your password:</string>
     <string name="play_button">Play!</string>
+    <string name="new_pass_hint">Enter a password for the next level!</string>
+    
 
 </resources>

@@ -10,14 +10,16 @@
     tools:context=".PassActivity" >
 
     <Button
-        android:id="@+id/button1"
+        android:id="@+id/play_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/editText1"
+        android:layout_below="@+id/input_pass"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="24dp"
-        android:text="@string/play_button" 
-        android:onClick="playClicked"/>
+        android:background="#FFFFFF"
+        android:onClick="playClicked"
+        android:text="@string/play_button"
+        android:color="#FFFFFF" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -27,10 +29,11 @@
         android:layout_marginTop="75dp"
         android:text="@string/enter_pass"
         android:textSize="30sp"
+        android:color="#FFFFFF"
         android:textStyle="bold" />
 
     <EditText
-        android:id="@+id/editText1"
+        android:id="@+id/input_pass"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"

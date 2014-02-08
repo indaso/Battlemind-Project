@@ -42,7 +42,7 @@ public class PassActivity extends Activity {
 		i = getIntent();
 		i2 = new Intent(this, BattleActivity.class);
 		i2.putExtra(GAMELEVEL, i.getIntExtra(MenuActivity.GAMEMODE, 0)); //Sends game level to new activity
-		EditText passField = (EditText) findViewById(R.id.editText1);
+		EditText passField = (EditText) findViewById(R.id.input_pass);
         String password = passField.getText().toString();
         i2.putExtra("password", password); //Sending password to new activity
 		startActivity(i2);
