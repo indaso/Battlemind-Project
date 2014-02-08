@@ -54,6 +54,7 @@ containing a value of this type.
         public static final int activity_vertical_margin=0x7f040001;
     }
     public static final class drawable {
+<<<<<<< HEAD
         public static final int battlemindgamebuttonalphabet=0x7f020000;
         public static final int battlemindgamebuttonboth=0x7f020001;
         public static final int battlemindgamebuttonnumbers=0x7f020002;
@@ -68,6 +69,17 @@ containing a value of this type.
         public static final int battlemindlevel6=0x7f02000b;
         public static final int battlemindlevel7=0x7f02000c;
         public static final int ic_launcher=0x7f02000d;
+=======
+        public static final int battlemindgameicon=0x7f020000;
+        public static final int battlemindlevel1=0x7f020001;
+        public static final int battlemindlevel2=0x7f020002;
+        public static final int battlemindlevel3=0x7f020003;
+        public static final int battlemindlevel4=0x7f020004;
+        public static final int battlemindlevel5=0x7f020005;
+        public static final int battlemindlevel6=0x7f020006;
+        public static final int battlemindlevel7=0x7f020007;
+        public static final int ic_launcher=0x7f020008;
+>>>>>>> 6e418514605d30d2b2d3ac46876f96d8f1b23c33
     }
     public static final class id {
         public static final int action_settings=0x7f080005;

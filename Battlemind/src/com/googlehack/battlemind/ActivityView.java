@@ -82,6 +82,9 @@ public class ActivityView extends View {
 	@Override
 	protected void onDraw(Canvas canvas) {
 		super.onDraw(canvas);
+		Paint paint = new Paint();
+		paint.setColor(Color.BLUE);
+		canvas.drawText(mExampleString, 0, 0, paint);
 
 		// TODO: consider storing these as member variables to reduce
 		// allocations per draw cycle.
