@@ -26,6 +26,7 @@ public class BattleActivity extends Activity {
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
+		FileParse parse = new FileParse();
 		super.onCreate(savedInstanceState);
 		
 		this.requestWindowFeature(Window.FEATURE_NO_TITLE);
@@ -41,9 +42,9 @@ public class BattleActivity extends Activity {
 		TextView text = (TextView) findViewById(R.id.helloworld);
 		text.setText(password);
 
-		//FileParse.parser();
-		//alphabet = FileParse.getAlphabet();
-		//passList = alphabet.get(password.length());
+		parse.parser();
+		alphabet = parse.getAlphabet();
+		passList = alphabet.get(password.length());
 
         ArrayList<String> passList = new ArrayList<String>();
         passList.add("monk");
@@ -53,14 +54,14 @@ public class BattleActivity extends Activity {
         passList.add("beat");
         passList.add("meat");
 		ai = new ArtificialIntelligence(passList, ALPHABETIC);
-		/*
+		
 		// ex: pass = "bear"
 		String guess = ai.guess(); // ex: guess = "meat"
 		String result = getResult(guess, password); // ex: result = "*ea*"
 		ai.updatePassword(result);
 		//repeat
 		
-		// */
+		// 
 		
 		View relLayout = findViewById(R.id.topLevel);
 		if (GAMELEVEL == 0) {

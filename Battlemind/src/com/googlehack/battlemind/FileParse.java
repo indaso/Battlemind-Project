@@ -12,15 +12,21 @@ public class FileParse {
 	private static HashMap<Integer, ArrayList<String>> numeric;
 	private static HashMap<Integer, ArrayList<String>> alphabet;
 	private static HashMap<Integer, ArrayList<String>> both;
+	
+	public FileParse(){
+        alphabet = new HashMap<Integer, ArrayList<String>>();
+        numeric = new HashMap<Integer, ArrayList<String>>();
+        both = new HashMap<Integer, ArrayList<String>>();
+	}
 
-	public static void parser(){
+	public void parser(){
        // System.out.print("started\n");
         String file = "passWithFreq.txt";
 		String line = null;
 		String[] passes = new String[2];
-        alphabet = new HashMap<Integer, ArrayList<String>>();
-        numeric = new HashMap<Integer, ArrayList<String>>();
-        both = new HashMap<Integer, ArrayList<String>>();
+        //alphabet = new HashMap<Integer, ArrayList<String>>();
+        //numeric = new HashMap<Integer, ArrayList<String>>();
+        //both = new HashMap<Integer, ArrayList<String>>();
 		
 		try {
 			BufferedReader br = new BufferedReader (new FileReader(file));
@@ -50,7 +56,7 @@ public class FileParse {
 	
 	//checks to see if the password is alphabetical, numerical, or both, and adds
 	//to the appropriate hashmap
-	public static void checker (String pass) {
+	public void checker (String pass) {
 		char[] characters = pass.toCharArray();
 		boolean number = false;
 		boolean alpha = false;
@@ -104,15 +110,15 @@ public class FileParse {
 		}
 	}
 
-	public static HashMap<Integer, ArrayList<String>> getNumeric() {
+	public HashMap<Integer, ArrayList<String>> getNumeric() {
 		return numeric;
 	}
 
-	public static HashMap<Integer, ArrayList<String>> getAlphabet() {
+	public HashMap<Integer, ArrayList<String>> getAlphabet() {
 		return alphabet;
 	}
 
-	public static HashMap<Integer, ArrayList<String>> getBoth() {
+	public HashMap<Integer, ArrayList<String>> getBoth() {
 		return both;
 	}
 }
