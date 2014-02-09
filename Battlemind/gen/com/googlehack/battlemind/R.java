@@ -71,28 +71,24 @@ containing a value of this type.
         public static final int ic_launcher=0x7f02000e;
     }
     public static final class id {
-        public static final int action_settings=0x7f080016;
-        public static final int alpha_button=0x7f080011;
+        public static final int action_settings=0x7f080012;
+        public static final int alpha_button=0x7f08000d;
         public static final int helloworld=0x7f080001;
-        public static final int helloworld10=0x7f08000a;
-        public static final int helloworld11=0x7f08000b;
-        public static final int helloworld12=0x7f08000c;
-        public static final int helloworld13=0x7f08000d;
-        public static final int helloworld14=0x7f08000e;
-        public static final int helloworld15=0x7f08000f;
-        public static final int helloworld16=0x7f080010;
-        public static final int helloworld2=0x7f080002;
-        public static final int helloworld3=0x7f080003;
-        public static final int helloworld4=0x7f080004;
-        public static final int helloworld5=0x7f080005;
-        public static final int helloworld6=0x7f080006;
-        public static final int helloworld7=0x7f080007;
-        public static final int helloworld8=0x7f080008;
-        public static final int helloworld9=0x7f080009;
-        public static final int input_pass=0x7f080015;
-        public static final int mixed_button=0x7f080013;
-        public static final int numeric_button=0x7f080012;
-        public static final int play_button=0x7f080014;
+        public static final int helloworld10=0x7f08000b;
+        public static final int helloworld11=0x7f08000c;
+        public static final int helloworld2=0x7f080003;
+        public static final int helloworld3=0x7f080004;
+        public static final int helloworld4=0x7f080005;
+        public static final int helloworld5=0x7f080006;
+        public static final int helloworld6=0x7f080007;
+        public static final int helloworld7=0x7f080008;
+        public static final int helloworld8=0x7f080009;
+        public static final int helloworld9=0x7f08000a;
+        public static final int input_pass=0x7f080011;
+        public static final int mixed_button=0x7f08000f;
+        public static final int numeric_button=0x7f08000e;
+        public static final int play_button=0x7f080010;
+        public static final int spacer=0x7f080002;
         public static final int topLevel=0x7f080000;
     }
     public static final class layout {

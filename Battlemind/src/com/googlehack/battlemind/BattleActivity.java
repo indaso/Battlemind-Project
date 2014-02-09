@@ -3,17 +3,20 @@ package com.googlehack.battlemind;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-import android.os.Bundle;
 import android.annotation.SuppressLint;
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
+import android.os.Bundle;
+import android.os.Handler;
+import android.util.Log;
 import android.view.Menu;
 import android.view.View;
-import android.view.ViewGroup;
-import android.widget.TextView;
 import android.view.Window;
 import android.view.WindowManager;
-import android.content.Context;
+import android.widget.ProgressBar;
+import android.widget.TextView;
+import android.widget.Toast;
 
 public class BattleActivity extends Activity {
 
@@ -28,6 +31,11 @@ public class BattleActivity extends Activity {
     private int currTextView;
     
     private boolean stopGuessing;
+    
+    private static final int PROGRESS = 0x1;
+
+    private ProgressBar mProgress;
+    private int mProgressStatus = 0;
 
     private HashMap<Integer, ArrayList<String>> alphabet;
 	private ArrayList<String> passList;
@@ -99,9 +107,17 @@ public class BattleActivity extends Activity {
 			relLayout.setBackgroundResource(R.drawable.battlemindlevel7);
 		}
 		//*/
+	}
+	
+	@Override
+	public void onResume(){
+		super.onResume();
 		int count = 0;
 		while(!stopGuessing){
-			if (count > 6) break;
+			Log.i("count", Integer.toString(count));
+			if (count > 9) {
+				break;
+			}
 			playGame();
 			count++;
 		}
@@ -133,23 +149,46 @@ public class BattleActivity extends Activity {
 		//int numLetters = password.length();
 		// ex: pass = "bear"
 		String guess = ai.guess(); // ex: guess = "meat"
-		TextView text = getTextView(currTextView++);
-		text.setText(spaceWord(guess));
-		// draw guess here
-		//ViewGroup layout = (ViewGroup) findViewById(R.id.topLevel);
-		/*TextView tv = new TextView(this);
-		tv.setLayoutParams(new LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT));
-		tv.setText(guess);
-		layout.addView(tv);*/
-		System.out.println("guess=" + guess + " ; pass=" + password);
-		stopGuessing = (password.equals(guess));
-		String result = getResult(guess, password); // ex: result = "*ea*"
-		ai.updatePassword(result);
-		/*EditText et = new EditText(this);
-		et.setLayoutParams(new LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT));*/
-		
+		System.out.println("Guess is: "+ guess);
+		//fixed the null crashes on event of win
+		if (guess != null) {
+			TextView text = getTextView(currTextView++);
+			text.setText(spaceWord(guess));
+			
+			// draw guess here
+			// ViewGroup layout = (ViewGroup) findViewById(R.id.topLevel);
+			/*
+			 * TextView tv = new TextView(this); tv.setLayoutParams(new
+			 * LayoutParams(LayoutParams.WRAP_CONTENT,
+			 * LayoutParams.WRAP_CONTENT)); tv.setText(guess);
+			 * layout.addView(tv);
+			 */
+			System.out.println("guess=" + guess + " ; pass=" + password);
+			stopGuessing = (password.equals(guess));
+			String result = getResult(guess, password); // ex: result = "*ea*"
+			ai.updatePassword(result);
+			/*
+			 * EditText et = new EditText(this); et.setLayoutParams(new
+			 * LayoutParams(LayoutParams.WRAP_CONTENT,
+			 * LayoutParams.WRAP_CONTENT));
+			 */
+			if(stopGuessing == true){
+				Toast.makeText(getThisContext(), "Jack the Ripper has won!",
+					Toast.LENGTH_LONG).show();
+				
+			}
+		} else {
+			Toast.makeText(getThisContext(), "You have beat Jack the Ripper!",
+					Toast.LENGTH_LONG).show();
+			stopGuessing = true;
+		}
     }
     
+    /**
+     * Method spaces strings in the TextView.
+     * @param s - Word to be spaced
+     * @return - Spaced out string
+     */
     public String spaceWord(String s){
     	String spaced = "";
     	for (int i = 0; i < s.length() - 1; i++){
@@ -160,6 +199,11 @@ public class BattleActivity extends Activity {
     	return spaced;
     }
     
+    /**
+     * Method returns TextView for each individual row.
+     * @param idx - id of row
+     * @return TextView of Row to be displayed.
+     */
     public TextView getTextView(int idx){
     	TextView text = null;
     	if (idx == 1){
@@ -167,35 +211,25 @@ public class BattleActivity extends Activity {
     		text = (TextView) findViewById(R.id.helloworld);
     	} else if (idx == 2){
     		System.out.println("idx==2");
-    		text = (TextView) findViewById(R.id.helloworld2);
-    	} else if (idx == 3){
-    		text = (TextView) findViewById(R.id.helloworld3);
-    	} else if (idx == 4){
-    		text = (TextView) findViewById(R.id.helloworld4);
-    	} else if (idx == 5){
-    		text = (TextView) findViewById(R.id.helloworld5);
-    	} else if (idx == 6){
-    		text = (TextView) findViewById(R.id.helloworld6);
-    	} else if (idx == 7){
-    		text = (TextView) findViewById(R.id.helloworld7);
-    	} else if (idx == 8){
-    		text = (TextView) findViewById(R.id.helloworld8);
-    	} else if (idx == 9){
-    		text = (TextView) findViewById(R.id.helloworld9);
-    	} else if (idx == 10){
-    		text = (TextView) findViewById(R.id.helloworld10);
-    	} else if (idx == 11){
     		text = (TextView) findViewById(R.id.helloworld11);
-    	} else if (idx == 12){
-    		text = (TextView) findViewById(R.id.helloworld12);
-    	} else if (idx == 13){
-    		text = (TextView) findViewById(R.id.helloworld13);
-    	} else if (idx == 14){
-    		text = (TextView) findViewById(R.id.helloworld14);
-    	} else if (idx == 15){
-    		text = (TextView) findViewById(R.id.helloworld15);
-    	} else if (idx == 16){
-    		text = (TextView) findViewById(R.id.helloworld16);
+    	} else if (idx == 3){
+    		text = (TextView) findViewById(R.id.helloworld10);
+    	} else if (idx == 4){
+    		text = (TextView) findViewById(R.id.helloworld9);
+    	} else if (idx == 5){
+    		text = (TextView) findViewById(R.id.helloworld8);
+    	} else if (idx == 6){
+    		text = (TextView) findViewById(R.id.helloworld7);
+    	} else if (idx == 7){
+    		text = (TextView) findViewById(R.id.helloworld6);
+    	} else if (idx == 8){
+    		text = (TextView) findViewById(R.id.helloworld5);
+    	} else if (idx == 9){
+    		text = (TextView) findViewById(R.id.helloworld4);
+    	} else if (idx == 10){
+    		text = (TextView) findViewById(R.id.helloworld3);
+    	} else if (idx == 11){
+    		text = (TextView) findViewById(R.id.helloworld2);
     	}  
     	return text;
     }

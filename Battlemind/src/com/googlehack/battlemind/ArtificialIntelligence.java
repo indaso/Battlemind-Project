@@ -28,9 +28,10 @@ public class ArtificialIntelligence {
 
     public String guess(){
         String guess = pop(passwordList); // picks most frequent
-
+        System.out.println("Is: "+ guess + " a valid guess? " +isValidGuess(guess));
         while(!isValidGuess(guess)){
             if (!passwordList.isEmpty()){
+            	System.out.println("Is: "+ guess + " a valid guess? " +isValidGuess(guess));
                 guess = pop(passwordList);
             } else /* passwordList.isEmpty() */ {
                 System.out.println("empty");
@@ -81,6 +82,10 @@ public class ArtificialIntelligence {
     }
 
     private boolean isValidGuess(String guess){
+    	//just added, check if guess is false
+    	if(guess == null){
+    		return false;
+    	}
         for (int i = 0; i < guess.length(); i++){
             String passwordLetter = String.valueOf(knownPassword.charAt(i));
             String guessLetter = String.valueOf(guess.charAt(i));
@@ -112,9 +117,21 @@ public class ArtificialIntelligence {
     }
 
     private String pop(ArrayList<String> arrayList){
-        String item = arrayList.get(0);
-        arrayList.remove(0);
-        return item;
+    	int j = 1;
+    	if(j == 1){
+    		System.out.println(arrayList);
+    		j++;
+    	}
+    	System.out.println("ArrayList size is: " +arrayList.size());
+    	//just added
+		if (!(arrayList.size() == 0)) {
+			String item = arrayList.get(0);
+			arrayList.remove(0);
+
+			return item;
+		}
+    	else
+    		return null;
     }
 
     private void initPossibleChars(int type){
@@ -134,7 +151,8 @@ public class ArtificialIntelligence {
         }
     }
 
-    public static void main(String[] args){
+    //main method for testing purposes
+/*    public static void main(String[] args){
         String pass = "doom";
 
         ArrayList<String> passList = new ArrayList<String>();
@@ -162,7 +180,7 @@ public class ArtificialIntelligence {
         guess = ai.guess();
         System.out.println("guess=" + guess); // beat, skips chat
         ai.updatePassword(ai.getResult(guess, pass));
-//*/
+
         ai.updatePassword("*!*!*");
         long oldTime = System.currentTimeMillis();
         ai.genCombos("",3);
@@ -174,5 +192,5 @@ public class ArtificialIntelligence {
         String password = "*b*d*";
         password = password.replaceFirst("\\*", "x");
         System.out.println(password);
-    }
+    }*/
 }
